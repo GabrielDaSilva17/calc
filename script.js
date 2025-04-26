@@ -1,13 +1,17 @@
-let cards = [];
-let currentIndex = 0;
+const cards = [
+  {
+    image: "https://link-da-imagem-1.jpg",
+    title: "Massagem Sensual",
+    description: "Use óleos aromáticos e explore o corpo do parceiro com toques suaves e atentos."
+  },
+  {
+    image: "https://link-da-imagem-2.jpg",
+    title: "Jogo de Dominação",
+    description: "Um assume o controle e o outro se entrega. Estabeleçam limites e explorem fantasias."
+  }
+];
 
-fetch('cards.json')
-  .then(response => response.json())
-  .then(data => {
-    cards = data;
-    showCard();
-    console.log(showCard())
-  });
+let currentIndex = 0;
 
 function showCard() {
   const card = cards[currentIndex];
@@ -20,3 +24,6 @@ document.getElementById('next-button').addEventListener('click', () => {
   currentIndex = Math.floor(Math.random() * cards.length);
   showCard();
 });
+
+// Inicializar a primeira carta
+showCard();
